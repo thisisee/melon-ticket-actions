@@ -21,4 +21,5 @@ jobs:
         with:
           product-id: "212702"
           schedule-id: "212702"
+          seat-id: "212702"
           slack-incoming-webhook-url: "https://hooks.slack.com/services/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"
