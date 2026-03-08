@@ -2,7 +2,7 @@ name: Check Melon Ticket
 
 on:
   schedule:
-    - cron: "*/1 * * * *"  # 每分钟检查一次
+    - cron: "*/2 * * * *" # 每分钟检查一次
   workflow_dispatch:
 
 jobs:
@@ -19,7 +19,7 @@ jobs:
       - name: Check ticket
         uses: ./
         with:
-          product-id: "212702"
-          schedule-id: "212702"
-          seat-id: "212702"
+          product-id: 212746
+          schedule-id: 100001
+          seat-id: 1_0
           slack-incoming-webhook-url: "https://hooks.slack.com/services/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"
