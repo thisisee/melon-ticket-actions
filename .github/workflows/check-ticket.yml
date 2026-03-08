@@ -2,24 +2,19 @@ name: Check Melon Ticket
 
 on:
   schedule:
-    - cron: "*/2 * * * *" # 每分钟检查一次
+    - cron: '*/5 * * * *' # Every 5 minutes（和示例保持一致，每5分钟检查一次）
   workflow_dispatch:
 
 jobs:
-  check:
+  job:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v4
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-      - name: Install dependencies
-        run: npm install
-      - name: Check ticket
-        uses: ./
+      - name: Check Tickets
+        uses: mooyoul/melon-ticket-actions@v1.1.0 # 直接引用官方Action，和示例一致
         with:
           product-id: 212746
           schedule-id: 100001
           seat-id: 1_0
           slack-incoming-webhook-url: "https://hooks.slack.com/services/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"
+          message: '<@U12345678> 달려달려~' # 提醒消息，可保留或修改
