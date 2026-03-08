@@ -19,6 +19,6 @@ jobs:
       - name: Check ticket
         uses: ./
         with:
-          product-id: "【212702】"
-          schedule-id: ""
+          product-id: "212702"
+          schedule-id: "212702"
           slack-webhook-url: "https://hooks.slack.com/services/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"
