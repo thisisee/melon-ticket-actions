@@ -1,0 +1,24 @@
+name: Check Melon Ticket
+
+on:
+  schedule:
+    - cron: "*/1 * * * *"  # 每分钟检查一次
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install dependencies
+        run: npm install
+      - name: Check ticket
+        uses: ./
+        with:
+          product-id: "【212702】"
+          schedule-id: ""
+          slack-webhook-url: "https://hooks.slack.com/services/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"
